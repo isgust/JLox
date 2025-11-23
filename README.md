@@ -4,44 +4,46 @@ Este projeto consiste na implementação do interpretador para a linguagem de pr
 
 ## 👥 Integrantes da Dupla
 
-| Nome Completo | Usuário do GitHub |
-| :--- | :--- |
-| **Daniel Campos Galdez Monteiro** | `DanielKGM` |
-| **Gustavo Antonio Silva Rocha** | `isgust` |
+| Nome Completo                     | Usuário do GitHub |
+| :-------------------------------- | :---------------- |
+| **Daniel Campos Galdez Monteiro** | `DanielKGM`       |
+| **Gustavo Antonio Silva Rocha**   | `isgust`          |
 
 ---
 
 ## 🛠️ Tecnologias e Configuração
 
-* **Linguagem de Implementação:** Java
-* **Gerenciador de Dependências:** **Maven** (Estrutura de Projeto Padrão)
-* **Referência Base:** [Crafting Interpreters](http://www.craftinginterpreters.com/)
+- **Linguagem de Implementação:** Java
+- **Gerenciador de Dependências:** **Maven** (Estrutura de Projeto Padrão)
+- **Referência Base:** [Crafting Interpreters](http://www.craftinginterpreters.com/)
 
 ### ⚙️ Como Compilar e Executar
 
 O projeto utiliza a estrutura padrão Maven, garantindo que possa ser clonado e aberto diretamente em qualquer IDE.
 
 1.  **Clonar o Repositório:**
+
     ```bash
-    git clone https://github.com/isgust/JLox/tree/master 
+    git clone https://github.com/isgust/JLox/tree/master
     cd jlox
     ```
 
 2.  **Compilar (Usando Maven):**
+
     ```bash
     mvn clean install
     ```
 
 3.  **Executar:**
 
-    * **Executar Arquivo Lox:** Para interpretar um arquivo específico:
-        ```bash
-        java -jar target/jlox-1.0-SNAPSHOT.jar 
-        ```
-    * **Modo Interativo (REPL):** Para iniciar o prompt de comando Lox:
-        ```bash
-        java -jar target/jlox-1.0-SNAPSHOT.jar
-        ```
+    - **Executar Arquivo Lox:** Para interpretar um arquivo específico:
+      ```bash
+      java -jar target/jlox-1.0-SNAPSHOT.jar
+      ```
+    - **Modo Interativo (REPL):** Para iniciar o prompt de comando Lox:
+      ```bash
+      java -jar target/jlox-1.0-SNAPSHOT.jar
+      ```
 
 ---
 
@@ -89,7 +91,7 @@ Claramente foram gerados mais tokens, tanto para palavras reservadas como "print
 A classe `AstPrinter` foi executada, o resultado está na imagem a seguir:
 
 <p align="center" width="70%">
-    <img width="33%" src="resources/astprinter_5_4.png"> 
+    <img width="100%" src="resources/astprinter_5_4.png"> 
 </p>
 
 Ele imprime como o interpretador enxerga e organiza os operadores e valores antes de executar algo.
@@ -121,10 +123,33 @@ Os testes confirmam que o parser:
 - Reconhece operadores de igualdade e booleanos.
 - Detecta erros sintáticos como em `1 + * 3`.
 
+### Teste Capítulo 7: _Evaluating Expressions_
+
+Segundo a conclusão do [Crafting Interpreters (2025, Capítulo 7)](http://www.craftinginterpreters.com/scanning.html), com a adição da classe `Interpreter.java`:
+
+    Agora temos um pipeline de linguagem completo: varredura, análise sintática e execução.
+
+Portanto, a classe `Lox.java` foi testada no modo REPL (prompt interativo), através do seguinte comando:
+
+`java com.ufma.compiladores.lox.Lox`
+
+Os resultados estão expostos na imagem a seguir:
+
+<p align="center" width="50%">
+    <img width="80%" src="resources/evaluating_expressions_7.png"> 
+</p>
+
+Portanto, o interpretador básico suporta, além de _Runtime Errors_, suporta a avaliação dos seguintes tipos de expressão:
+
+- Literais;
+- Agrupamentos;
+- Operações Unitárias;
+- Operações Binárias.
+
 ## Referência
 
 - **Livro Base:** _Crafting Interpreters_.
-- **Seção de Referência para esta Etapa:** [Scanning - Capítulo 4](http://www.craftinginterpreters.com/scanning.html)
+- **Seção de Referência para esta Etapa:** [Capítulos 4 - 7](http://www.craftinginterpreters.com/scanning.html)
 
 ---
 
