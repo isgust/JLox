@@ -136,10 +136,10 @@ Portanto, a classe `Lox.java` foi testada no modo REPL (prompt interativo), atra
 Os resultados estão expostos na imagem a seguir:
 
 <p align="center" width="50%">
-    <img width="80%" src="resources/evaluating_expressions_7.png"> 
+    <img width="33%" src="resources/evaluating_expressions_7.png"> 
 </p>
 
-Portanto, o interpretador básico suporta, além de _Runtime Errors_, suporta a avaliação dos seguintes tipos de expressão:
+Portanto, o interpretador básico, além de _Runtime Errors_, suporta a avaliação dos seguintes tipos de expressão:
 
 - Literais;
 - Agrupamentos;
