@@ -1,19 +1,49 @@
-# Lox: Análise Léxica
+# 🦊 jlox: Interpretador da Linguagem Lox em Java
 
-## Integrantes da Dupla
+Este projeto consiste na implementação do interpretador para a linguagem de programação **Lox**, escrito em **Java**. O desenvolvimento segue rigorosamente o conteúdo e as etapas propostas no livro **_Crafting Interpreters_** de Robert Nystrom.
 
-| Nome Completo                     | Usuário do GitHub |
-| :-------------------------------- | :---------------- |
-| **Daniel Campos Galdez Monteiro** | `DanielKGM`       |
-| **Gustavo Antonio Silva Rocha**   | `isgust`          |
+## 👥 Integrantes da Dupla
+
+| Nome Completo | Usuário do GitHub |
+| :--- | :--- |
+| **Daniel Campos Galdez Monteiro** | `DanielKGM` |
+| **Gustavo Antonio Silva Rocha** | `isgust` |
 
 ---
 
-## Descrição do Projeto
+## 🛠️ Tecnologias e Configuração
 
-Este projeto é a primeira etapa no desenvolvimento de um interpretador para a linguagem **Lox**, conforme apresentado no livro _Crafting Interpreters_.
+* **Linguagem de Implementação:** Java
+* **Gerenciador de Dependências:** **Maven** (Estrutura de Projeto Padrão)
+* **Referência Base:** [Crafting Interpreters](http://www.craftinginterpreters.com/)
 
-Nesta fase, o foco principal é a **Análise Léxica (Scanning)**. O objetivo é construir a infraestrutura básica necessária para ler o código-fonte Lox e convertê-lo em uma sequência de _tokens_, que são as unidades mínimas de significado da linguagem.
+### ⚙️ Como Compilar e Executar
+
+O projeto utiliza a estrutura padrão Maven, garantindo que possa ser clonado e aberto diretamente em qualquer IDE.
+
+1.  **Clonar o Repositório:**
+    ```bash
+    git clone https://github.com/isgust/JLox/tree/master 
+    cd jlox
+    ```
+
+2.  **Compilar (Usando Maven):**
+    ```bash
+    mvn clean install
+    ```
+
+3.  **Executar:**
+
+    * **Executar Arquivo Lox:** Para interpretar um arquivo específico:
+        ```bash
+        java -jar target/jlox-1.0-SNAPSHOT.jar 
+        ```
+    * **Modo Interativo (REPL):** Para iniciar o prompt de comando Lox:
+        ```bash
+        java -jar target/jlox-1.0-SNAPSHOT.jar
+        ```
+
+---
 
 ## Resultados
 
