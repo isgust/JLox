@@ -18,19 +18,19 @@ public class ParserTest {
     }
 
     private static void test(String source) {
-        System.out.println("\n>>> " + source);
+        // System.out.println("\n>>> " + source);
 
-        Scanner scanner = new Scanner(source);
-        List<Token> tokens = scanner.scanTokens();
+        // Scanner scanner = new Scanner(source);
+        // List<Token> tokens = scanner.scanTokens();
 
-        Parser parser = new Parser(tokens);
-        Expr expr = parser.parse();
+        // Parser parser = new Parser(tokens);
+        // Expr expr = parser.parse();
 
-        if (expr == null) {
-            System.out.println("ERRO DE PARSE");
-        } else {
-            String ast = new AstPrinter().print(expr);
-            System.out.println("AST: " + ast);
-        }
+        // if (expr == null) {
+        // System.out.println("ERRO DE PARSE");
+        // } else {
+        // String ast = new AstPrinter().print(expr);
+        // System.out.println("AST: " + ast);
+        // }
     }
 }
