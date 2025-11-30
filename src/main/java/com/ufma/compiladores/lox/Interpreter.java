@@ -5,6 +5,8 @@ import com.ufma.compiladores.lox.Expr.Binary;
 import com.ufma.compiladores.lox.Expr.Grouping;
 import com.ufma.compiladores.lox.Expr.Literal;
 import com.ufma.compiladores.lox.Expr.Unary;
+import com.ufma.compiladores.lox.Expr.Variable;
+import com.ufma.compiladores.lox.Stmt.Var;
 
 class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     void interpret(List<Stmt> statements) {
@@ -157,5 +159,17 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         if (object instanceof Boolean)
             return (boolean) object;
         return true;
+    }
+
+    @Override
+    public Void visitVarStmt(Var stmt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitVarStmt'");
+    }
+
+    @Override
+    public Object visitVariableExpr(Variable expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitVariableExpr'");
     }
 }
