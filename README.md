@@ -146,6 +146,20 @@ Portanto, o interpretador básico, além de _Runtime Errors_, suporta a avaliaç
 - Operações Unitárias;
 - Operações Binárias.
 
+### Teste Seções 8.1 - 8.3: _Statements_, _Global Variables_ e _Environments_
+
+- `statements`: instruções do programa (por exemplo var, print, if, while) que dizem ao interpretador o que fazer;
+- `global variables`: variáveis definidas no escopo global (nível superior) acessíveis de qualquer parte do programa enquanto o ambiente (_environment_) existir;
+- `environments`: estruturas que armazenam pares nome→valor para variáveis. Servem para resolver nomes e implementar escopos futuramente (global, local, etc.).
+
+Após implementação dos três conceitos supracitados, foi executada a classe `Lox.java` novamente, no modo REPL, para o teste exigido no final da seção 8.3. O resultado obtido está na imagem a seguir:
+
+<p align="center" width="50%">
+    <img width="33%" src="resources/global_variables_8_3.png"> 
+</p>
+
+O interpretador criou a variável **a** com valor 1 no environment global, criou **b** com valor 2 também no global, então avaliou a expressão **a + b**. O lookup dos nomes **a** e **b** consultou o environment global e retornou 1 e 2; a soma produziu 3, que o **print** exibiu.
+
 ## Referência
 
 - **Livro Base:** _Crafting Interpreters_.
