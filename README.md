@@ -160,6 +160,40 @@ Após implementação dos três conceitos supracitados, foi executada a classe `
 
 O interpretador criou a variável **a** com valor 1 no environment global, criou **b** com valor 2 também no global, então avaliou a expressão **a + b**. O lookup dos nomes **a** e **b** consultou o environment global e retornou 1 e 2; a soma produziu 3, que o **print** exibiu.
 
+### Teste Seção 8.5: Escopos
+
+Após implementação de escopos presente na seção 8.5, o seguinte arquivo `teste_escopo.lox` foi passado como argumento para `Lox.java`:
+
+```
+var a = "global a";
+var b = "global b";
+var c = "global c";
+{
+  var a = "outer a";
+  var b = "outer b";
+  {
+    var a = "inner a";
+    print a;
+    print b;
+    print c;
+  }
+  print a;
+  print b;
+  print c;
+}
+print a;
+print b;
+print c;
+```
+
+O retorno do programa:
+
+<p align="center" width="50%">
+    <img width="33%" src="resources/scope_8_5.png"> 
+</p>
+
+De acordo com a imagem, nesting funciona corretamente, pois cada bloco interno acessa variáveis dos blocos externos quando não há uma declaração local. Também evidencia _shadowing_: cada `var a` em um novo escopo oculta a `a` dos escopos superiores, fazendo o inner imprimir "inner a", o outer "outer a" e o global "global a"
+
 ## Referência
 
 - **Livro Base:** _Crafting Interpreters_.
