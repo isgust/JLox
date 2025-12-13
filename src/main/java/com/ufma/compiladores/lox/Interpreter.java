@@ -1,12 +1,6 @@
 package com.ufma.compiladores.lox;
 
 import java.util.List;
-import com.ufma.compiladores.lox.Expr.Binary;
-import com.ufma.compiladores.lox.Expr.Grouping;
-import com.ufma.compiladores.lox.Expr.Literal;
-import com.ufma.compiladores.lox.Expr.Unary;
-import com.ufma.compiladores.lox.Expr.Variable;
-import com.ufma.compiladores.lox.Stmt.Var;
 
 class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     private Environment environment = new Environment();
@@ -31,9 +25,11 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         Object left = evaluate(expr.left);
 
         if (expr.operator.type == TokenType.OR) {
-            if (isTruthy(left)) return left;
+            if (isTruthy(left))
+                return left;
         } else {
-            if (!isTruthy(left)) return left;
+            if (!isTruthy(left))
+                return left;
         }
 
         return evaluate(expr.right);

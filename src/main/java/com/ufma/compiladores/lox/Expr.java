@@ -1,15 +1,19 @@
 package com.ufma.compiladores.lox;
 
-import java.util.List;
-
 abstract class Expr {
   interface Visitor<R> {
     R visitAssignExpr(Assign expr);
+
     R visitBinaryExpr(Binary expr);
+
     R visitGroupingExpr(Grouping expr);
+
     R visitLiteralExpr(Literal expr);
+
     R visitLogicalExpr(Logical expr);
+
     R visitUnaryExpr(Unary expr);
+
     R visitVariableExpr(Variable expr);
   }
 
