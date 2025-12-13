@@ -3,10 +3,6 @@ package com.ufma.compiladores.lox;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ufma.compiladores.lox.Expr.Call;
-import com.ufma.compiladores.lox.Stmt.Function;
-import com.ufma.compiladores.lox.Stmt.Return;
-
 class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     final Environment globals = new Environment();
     private Environment environment = globals;
@@ -292,8 +288,11 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     }
 
     @Override
-    public Void visitReturnStmt(Return stmt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visitReturnStmt'");
+    public Void visitReturnStmt(Stmt.Return stmt) {
+        Object value = null;
+        if (stmt.value != null)
+            value = evaluate(stmt.value);
+
+        throw new Return(value);
     }
 }
