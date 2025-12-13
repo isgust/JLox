@@ -2,6 +2,10 @@ package com.ufma.compiladores.lox;
 
 import java.util.List;
 
+import com.ufma.compiladores.lox.Expr.Call;
+import com.ufma.compiladores.lox.Stmt.Function;
+import com.ufma.compiladores.lox.Stmt.Return;
+
 class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
     private Environment environment = new Environment();
 
@@ -231,5 +235,23 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         Object value = evaluate(expr.value);
         environment.assign(expr.name, value);
         return value;
+    }
+
+    @Override
+    public Void visitFunctionStmt(Function stmt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitFunctionStmt'");
+    }
+
+    @Override
+    public Void visitReturnStmt(Return stmt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitReturnStmt'");
+    }
+
+    @Override
+    public Object visitCallExpr(Call expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitCallExpr'");
     }
 }

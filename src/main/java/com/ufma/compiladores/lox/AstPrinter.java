@@ -1,6 +1,7 @@
 package com.ufma.compiladores.lox;
 
 import com.ufma.compiladores.lox.Expr.Assign;
+import com.ufma.compiladores.lox.Expr.Call;
 import com.ufma.compiladores.lox.Expr.Logical;
 import com.ufma.compiladores.lox.Expr.Variable;
 
@@ -73,5 +74,11 @@ public class AstPrinter implements Expr.Visitor<String> {
     public String visitLogicalExpr(Logical expr) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'visitLogicalExpr'");
+    }
+
+    @Override
+    public String visitCallExpr(Call expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitCallExpr'");
     }
 }
