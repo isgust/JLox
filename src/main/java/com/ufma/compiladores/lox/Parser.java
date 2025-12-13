@@ -63,11 +63,14 @@ public class Parser {
     }
 
     private Stmt statement() {
-        if (match(FOR)) return forStatement();
-        if (match(IF)) return ifStatement();
+        if (match(FOR))
+            return forStatement();
+        if (match(IF))
+            return ifStatement();
         if (match(PRINT))
             return printStatement();
-        if (match(WHILE)) return whileStatement();
+        if (match(WHILE))
+            return whileStatement();
 
         if (match(LEFT_BRACE))
             return new Stmt.Block(block());
@@ -107,7 +110,8 @@ public class Parser {
                             new Stmt.Expression(increment)));
         }
 
-        if (condition == null) condition = new Expr.Literal(true);
+        if (condition == null)
+            condition = new Expr.Literal(true);
         body = new Stmt.While(condition, body);
 
         if (initializer != null) {
@@ -170,7 +174,6 @@ public class Parser {
 
         return expr;
     }
-
 
     private Expr or() {
         Expr expr = and();
@@ -251,7 +254,38 @@ public class Parser {
             return new Expr.Unary(operator, right);
         }
 
-        return primary();
+        return call();
+    }
+
+    private Expr call() {
+        Expr expr = primary();
+
+        while (true) {
+            if (match(LEFT_PAREN)) {
+                expr = finishCall(expr);
+            } else {
+                break;
+            }
+        }
+
+        return expr;
+    }
+
+    private Expr finishCall(Expr callee) {
+        List<Expr> arguments = new ArrayList<>();
+        if (!check(RIGHT_PAREN)) {
+            do {
+                if (arguments.size() >= 255) {
+                    error(peek(), "Can't have more than 255 arguments.");
+                }
+                arguments.add(expression());
+            } while (match(COMMA));
+        }
+
+        Token paren = consume(RIGHT_PAREN,
+                "Expect ')' after arguments.");
+
+        return new Expr.Call(callee, paren, arguments);
     }
 
     private Expr primary() {
