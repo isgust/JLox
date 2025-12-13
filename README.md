@@ -197,7 +197,7 @@ De acordo com a imagem, nesting funciona corretamente, pois cada bloco interno a
 ## Referência
 
 - **Livro Base:** _Crafting Interpreters_.
-- **Seção de Referência para esta Etapa:** [Capítulos 4 - 7](http://www.craftinginterpreters.com/scanning.html)
+- **Seção de Referência para esta Etapa:** [Capítulos 4 - 12](http://www.craftinginterpreters.com/scanning.html)
 
 ---
 
