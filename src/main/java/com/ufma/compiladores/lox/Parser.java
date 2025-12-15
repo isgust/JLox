@@ -224,9 +224,7 @@ public class Parser {
                 return new Expr.Set(get.object, get.name, value);
             }
         }
-
-            error(equals, "Invalid assignment target.");
-        }
+        error(equals, "Invalid assignment target.");
 
         return expr;
     }
