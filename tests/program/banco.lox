@@ -1,0 +1,32 @@
+class ContaBancaria {
+  init(titular, saldoInicial) {
+    this.titular = titular;
+    this.saldo = saldoInicial;
+  }
+
+  depositar(valor) {
+    this.saldo = this.saldo + valor;
+  }
+
+  sacar(valor) {
+    if (valor > this.saldo) {
+      print "Saldo insuficiente!";
+      return;
+    }
+    this.saldo = this.saldo - valor;
+  }
+
+  mostrarSaldo() {
+    print this.titular + " possui saldo: " + this.saldo;
+  }
+}
+
+// Uso da classe
+var conta = ContaBancaria("João", 100);
+
+conta.mostrarSaldo();
+conta.depositar(50);
+conta.mostrarSaldo();
+conta.sacar(200);
+conta.sacar(80);
+conta.mostrarSaldo();
