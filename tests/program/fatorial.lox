@@ -6,5 +6,7 @@ fun fatorial(n) {
 }
 
 for (var i = 1; i <= 5; i = i + 1) {
-  print "fatorial(" + i + ") = " + fatorial(i);
+  print i;
+  print fatorial(i);
+  print " ";
 }

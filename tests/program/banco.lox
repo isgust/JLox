@@ -17,16 +17,21 @@ class ContaBancaria {
   }
 
   mostrarSaldo() {
-    print this.titular + " possui saldo: " + this.saldo;
+    print this.titular;
+    print this.saldo;
   }
 }
 
 // Uso da classe
 var conta = ContaBancaria("João", 100);
 
+print "==== SALDO INICIAL ====";
 conta.mostrarSaldo();
+print "==== DEPOSITAR 50R$ ====";
 conta.depositar(50);
 conta.mostrarSaldo();
+print "==== SACAR 200R$ ====";
 conta.sacar(200);
+print "==== SACAR 80R$ ====";
 conta.sacar(80);
 conta.mostrarSaldo();
