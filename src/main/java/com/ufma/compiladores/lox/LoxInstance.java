@@ -17,7 +17,8 @@ class LoxInstance {
         }
 
         LoxFunction method = klass.findMethod(name.lexeme);
-        if (method != null) return method.bind(this);
+        if (method != null)
+            return method.bind(this);
 
         throw new RuntimeError(name,
                 "Undefined property '" + name.lexeme + "'.");
@@ -26,5 +27,9 @@ class LoxInstance {
     @Override
     public String toString() {
         return klass.name + " instance";
+    }
+
+    void set(Token name, Object value) {
+        fields.put(name.lexeme, value);
     }
 }

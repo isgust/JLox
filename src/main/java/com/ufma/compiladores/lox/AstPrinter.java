@@ -2,7 +2,10 @@ package com.ufma.compiladores.lox;
 
 import com.ufma.compiladores.lox.Expr.Assign;
 import com.ufma.compiladores.lox.Expr.Call;
+import com.ufma.compiladores.lox.Expr.Get;
 import com.ufma.compiladores.lox.Expr.Logical;
+import com.ufma.compiladores.lox.Expr.Set;
+import com.ufma.compiladores.lox.Expr.This;
 import com.ufma.compiladores.lox.Expr.Variable;
 
 public class AstPrinter implements Expr.Visitor<String> {
@@ -80,5 +83,23 @@ public class AstPrinter implements Expr.Visitor<String> {
     public String visitCallExpr(Call expr) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'visitCallExpr'");
+    }
+
+    @Override
+    public String visitGetExpr(Get expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitGetExpr'");
+    }
+
+    @Override
+    public String visitSetExpr(Set expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitSetExpr'");
+    }
+
+    @Override
+    public String visitThisExpr(This expr) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visitThisExpr'");
     }
 }

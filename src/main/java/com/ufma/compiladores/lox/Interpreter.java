@@ -20,7 +20,7 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             @Override
             public Object call(Interpreter interpreter,
                     List<Object> arguments) {
-                return (double) System.currentTimeMillis() / 1000.0;
+                return System.currentTimeMillis() / 1000.0;
             }
 
             @Override
@@ -70,7 +70,7 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
         }
 
         Object value = evaluate(expr.value);
-        ((LoxInstance)object).set(expr.name, value);
+        ((LoxInstance) object).set(expr.name, value);
         return value;
     }
 
@@ -90,6 +90,9 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             case MINUS:
                 checkNumberOperand(expr.operator, right);
                 return -(double) right;
+            default:
+                // Unreachable.
+
         }
 
         // Unreachable.
@@ -157,6 +160,9 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
             case STAR:
                 checkNumberOperands(expr.operator, left, right);
                 return (double) left * (double) right;
+            default:
+                // Unreachable.
+
         }
 
         // Unreachable.
@@ -261,7 +267,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
         Map<String, LoxFunction> methods = new HashMap<>();
         for (Stmt.Function method : stmt.methods) {
-            LoxFunction function = new LoxFunction(method, environment);
+            LoxFunction function = new LoxFunction(method, environment,
+                    method.name.lexeme.equals("init"));
             methods.put(method.name.lexeme, function);
         }
 
@@ -322,7 +329,7 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
     @Override
     public Object visitVariableExpr(Expr.Variable expr) {
-        return lookUpVariable(expr.name, expr););
+        return lookUpVariable(expr.name, expr);
     }
 
     private Object lookUpVariable(Token name, Expr expr) {
@@ -350,7 +357,8 @@ class Interpreter implements Expr.Visitor<Object>, Stmt.Visitor<Void> {
 
     @Override
     public Void visitFunctionStmt(Stmt.Function stmt) {
-        LoxFunction function = new LoxFunction(stmt, environment);
+        LoxFunction function = new LoxFunction(stmt, environment,
+                false);
         environment.define(stmt.name.lexeme, function);
         return null;
     }

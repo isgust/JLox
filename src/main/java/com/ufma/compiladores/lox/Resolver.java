@@ -148,7 +148,7 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
         return null;
     }
 
-    private void resolveFunction(Stmt.Function function,FunctionType type) {
+    private void resolveFunction(Stmt.Function function, FunctionType type) {
         FunctionType enclosingFunction = currentFunction;
         currentFunction = type;
         beginScope();
@@ -259,8 +259,9 @@ class Resolver implements Expr.Visitor<Void>, Stmt.Visitor<Void> {
             Lox.error(expr.keyword,
                     "Can't use 'this' outside of a class.");
             return null;
-            resolveLocal(expr, expr.keyword);
-            return null;
+        }
+        resolveLocal(expr, expr.keyword);
+        return null;
     }
 
     @Override
